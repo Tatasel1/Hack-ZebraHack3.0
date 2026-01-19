@@ -1,0 +1,1010 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: url("../pozehtml1/china.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+@keyframes subtleGlow {
+    0% { 
+        text-shadow: 0 0 10px rgba(255, 255, 255, .8); 
+    }
+    50% { 
+        text-shadow: 0 0 15px rgba(255, 255, 255, 1); 
+    }
+    100% { 
+        text-shadow: 0 0 10px rgba(255, 255, 255, .8); 
+    }
+}
+
+#site-content {
+    background: rgba(0, 0, 0, 0.35);
+    position: relative;
+    z-index: 99;
+    min-height: 0;
+}
+
+.logo-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.logo-img {
+    height: 70px;
+    width: auto;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 5%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.site-motto {
+    margin: 0 auto 0 50px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex; 
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 30px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #4CAF50; 
+}
+
+.logout-btn {
+    display: none;
+    border: 1px solid #fff;
+    padding: 5px 15px;
+    border-radius: 6px;
+    transition: .3s;
+    margin-left: 30px;
+}
+
+body.logged-in .logout-btn {
+    display: inline-block;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001; 
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.slider .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slide img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 0; 
+    transition: .3s ease;
+}
+
+.slide.active img {
+    opacity: 1;
+}
+
+.slide .left-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: 0s;
+}
+
+.slide.active .left-info {
+    transform: translateX(0);
+    z-index: 1;
+    transition: .5s ease;
+}
+
+.left-info .penetrate-blur {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-end;
+    padding-top: 0;
+    background: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(20px);
+    -webkit-mask: linear-gradient(#000 0 0), linear-gradient(#000 0 0);
+    -webkit-mask-clip: text, padding-box;
+    -webkit-mask-composite: xor;
+    padding-right: 20px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.penetrate-blur h1 {
+    font-size: 250px; 
+    text-shadow: 0 0 10px rgba(255, 255, 255, .8);
+    animation: subtleGlow 3s ease-in-out infinite; 
+}
+
+.slide:nth-child(1) .penetrate-blur h1,
+.slide:nth-child(4) .penetrate-blur h1 {
+    margin-right: -10px;
+}
+
+
+.left-info .content {
+    position: absolute;
+    bottom: 8%; 
+    left: 10%;
+    color: #fff;
+    max-width: unset; 
+}
+
+.content h3 {
+    font-size: 20px;
+}
+
+.content p {
+    font-size: 16px;
+    margin: 10px 0 15px;
+}
+
+.content .btn {
+    display: inline-block;
+    padding: 13px 28px;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    font-size: 16px;
+    color: #444;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.content .btn:hover {
+    background: transparent;
+    color: #fff;
+}
+
+.slide .right-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center; 
+    padding-top: 0;
+    transform: translateX(100%);
+    transition: 0s;
+}
+
+.slide.active .right-info {
+    transform: translateX(0);
+    z-index: 1;
+    transition: .5s ease;
+}
+
+.right-info h1 {
+    font-size: 250px; 
+    color: #fff;
+    animation: subtleGlow 3s ease-in-out infinite; 
+    text-shadow:
+        0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa,
+        0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3),
+        0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2),
+        0 20px 20px rgba(0, 0, 0, .15);
+}
+
+.right-info h3 {
+    position: absolute;
+    font-size: 80px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    transform: translateY(150%);
+    margin-left: 13px;
+}
+
+.navigation {
+    position: absolute;
+    bottom: 8%;
+    right: 5%;
+    z-index: 99;
+    display: block; 
+}
+
+.navigation span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    cursor: pointer;
+    margin-left: 25px;
+    transition: .5s;
+}
+
+.navigation span:nth-child(1) {
+    background: transparent;
+}
+
+.navigation span:nth-child(1):hover {
+    background: #fff;
+}
+
+.navigation span i {
+    font-size: 45px;
+    color: #444;
+    transition: .5s;
+}
+
+.navigation span:nth-child(1):hover i {
+    color: #444;
+}
+
+
+.features-section {
+    width: 100%;
+    background-color: transparent; 
+    padding: 80px 5%; 
+    text-align: center;
+    padding-top: 100px;
+    position: relative;
+}
+
+.section-title {
+    font-size: 42px; 
+    font-weight: 800;
+    color: #f8f8f8;
+    margin-bottom: 60px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, .8);
+    animation: subtleGlow 3s ease-in-out infinite; 
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+.feature-card-wrapper {
+    flex: 1 1 200px; 
+    min-width: 220px;
+    height: 300px; 
+    margin: 15px 0; 
+}
+.feature-card {
+    flex: 1 1 200px; 
+    min-width: 220px;
+    background: #427e43;
+    color: #ffffff;
+    padding: 30px;
+    border: 2px solid #3c703c;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    border-radius: 12px;
+}
+
+.feature-card-wrapper:hover .feature-card {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; 
+    border-radius: 12px;
+    padding: 30px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card-front {
+    background: #3b743d; 
+    border: 2px solid #203d20;
+}
+
+.card-front h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    border-bottom: none; 
+}
+
+.card-back {
+    background: #346737; 
+    border: 2px solid #467044;
+    transform: rotateY(180deg); 
+    justify-content: flex-start; 
+    text-align: left;
+    padding-top: 40px; 
+}
+
+.card-back p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px; 
+    flex-grow: 1;
+}
+
+.card-back .btn-feature {
+    margin-top: auto; 
+}
+
+.feature-card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3); 
+    padding-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px; 
+}
+
+.btn-feature {
+    display: block; 
+    text-align: center;
+    margin-top: 15px; 
+    padding: 10px 15px;
+    background: #ffffff; 
+    color: #4CAF50; 
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+.btn-feature:hover {
+    background: #388e3c; 
+    color: #ffffff;
+    transform: scale(1.03);
+}
+
+
+.modal-overlay.active ~ .banner,
+.modal-overlay.active ~ .header,
+.modal-overlay.active ~ .features-section {
+    pointer-events: none;
+    filter: blur(5px);
+    transition: filter 0.3s;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden; 
+    opacity: 0;
+    transition: visibility 0s, opacity 0.4s;
+}
+
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.form-wrapper {
+    position: absolute;
+    width: 420px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 30px 40px;
+    color: #fff;
+    z-index: 1001;
+    transition: 0.5s ease-in-out;
+    transform: scale(0.95) translateY(20px);
+    opacity: 0;
+    display: none; 
+}
+
+.form-wrapper.active {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    display: block; 
+}
+
+.form-wrapper h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: #fff;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.form-wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.form-wrapper .btn:hover {
+    background: #f1f1f1;
+}
+
+.register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+    .feature-card {
+        flex: 1 1 calc(33.333% - 30px);
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .header {
+        padding: 20px 5%;
+    }
+
+    .site-motto {
+        display: none; 
+    }
+
+    .menu-icon {
+        display: block;
+    }
+    
+    .navbar {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 100px 0 0 30px;
+        transition: right 0.4s ease-in-out;
+    }
+
+    .navbar.active {
+        right: 0;
+    }
+    
+    .navbar a {
+        margin: 15px 0;
+        font-size: 24px;
+    }
+
+    /* === Modificări pentru a face "Har Ta Interactiva" vizibile pe mobil === */
+    .slide .left-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; 
+        height: 50%; /* Ocupă prima jumătate */
+        padding: 0 5%;
+        background: rgba(0, 0, 0, 0.5); 
+        transform: translateX(0); /* Face left-info vizibil */
+    }
+
+    .left-info .penetrate-blur {
+        display: flex; /* <-- Face "Har" vizibil */
+        position: static;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-mask: none; /* Simplifică stilul pe mobil */
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        justify-content: flex-start;
+        padding-right: 0;
+    }
+    
+    .penetrate-blur h1 {
+        font-size: 100px; 
+        text-shadow: 0 0 10px rgba(255, 255, 255, .8);
+        margin-right: 0;
+        margin-left: 0;
+        animation: none;
+    }
+    
+    .left-info .content {
+        display: none; /* Ascundem conținutul adițional pentru a arăta doar titlul mare */
+    }
+    
+    .slide .right-info {
+        position: absolute;
+        top: 50%; /* Mută "Ta Interactiva" în a doua jumătate */
+        right: 0;
+        width: 100%; 
+        height: 50%; /* Ocupă a doua jumătate */
+        display: flex; 
+        flex-direction: column;
+        align-items: flex-end; 
+        justify-content: center;
+        padding: 0 5%;
+        transform: translateX(0); 
+        transition: 0s;
+    }
+
+    .right-info h1 {
+        font-size: 100px; 
+        margin-right: 0;
+        animation: none; 
+        text-shadow: 0 0 10px rgba(0, 0, 0, .8);
+    }
+    
+    .right-info h3 {
+        position: static; 
+        font-size: 40px; 
+        margin-left: 0;
+        transform: translateY(0); 
+        text-shadow: 0 0 10px rgba(0, 0, 0, .8);
+    }
+    /* === SFÂRȘITUL Modificărilor Titlu Banner === */
+    
+    .feature-card {
+        flex: 1 1 calc(50% - 20px);
+        min-width: 180px;
+    }
+
+    .modal-overlay {
+        top: 70px;
+        height: calc(100% - 70px);
+    }
+    
+    /* Responsive - Mobile Ajustare Secțiune Card */
+    .card {
+        padding: 20px 5%; 
+        gap: 10px; 
+    }
+
+    .search-box, #role-selector, #company-btn {
+        max-width: 100%; 
+    }
+
+    #details-container {
+        padding: 15px !important;
+        border-radius: 8px;
+    }
+}
+
+/* Responsive - Mobil Mic (Cardurile se aliniază la 1 pe rând) */
+@media (max-width: 500px) {
+   .feature-card-wrapper {
+    flex: 1 1 calc(50% - 20px);
+    min-width: 180px;
+    height: 320px; /* Ajustează înălțimea pentru tabletă */
+}
+    .modal-overlay {
+        align-items: flex-start;
+        padding-top: 50px;
+    }
+    .form-wrapper {
+        width: 90%;
+    }
+}
+/*iconite apple*/
+.quick-contacts {
+    display: inline-flex !important;  
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin: 40px 0;
+    padding: 10px 0;
+  }
+  
+  
+  .quick-contacts a {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  
+  .icon-apple {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px;
+    border-radius: 50%;
+    
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .main-footer{
+    margin-top: auto;      
+    padding: 18px 14px;    
+    background: transparent;
+    border-top: none;
+  }
+  
+  .footer-content{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%;
+    padding: 10px 20px; 
+    width: min(560px, 92vw);
+    margin: 0 auto;            
+  
+    background: rgba(0,0,0,0.30);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+  
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+  
+    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  }
+
+  
+  .footer-content a{
+    color: rgba(255,255,255,0.88);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.22);
+  }
+  
+  .footer-content a:hover{
+    border-bottom-color: rgba(255,255,255,0.55);
+  }
+  /*hover*/
+  .icon-apple:hover {
+    transform: scale(1.12);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.12);
+    background: rgba(255, 255, 255, 1);
+  }
+  
+  img:not(.icon-apple) {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  }
+  .footer-spacer {
+    width: 100px; 
+    height: 1px; 
+}
+
+/* --- Stilizare Secțiune Căutare/Companie (NOU) --- */
+.card {
+    padding: 30px 5%;
+    background: rgba(0, 0, 0, 0.5); /* Fundal semi-transparent pentru secțiunea card */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: #fff;
+}
+
+.search-box, #role-selector, #company-btn {
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 400px; /* Limitează lățimea elementelor de control */
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+
+.search-box:focus, #role-selector:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    background-color: #fff;
+}
+
+#company-btn {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#company-btn:hover {
+    background-color: #388e3c;
+    border-color: #388e3c;
+    transform: translateY(-2px);
+}
+
+#company-status {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+#company-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.company-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    flex: 1 1 300px; /* Permite cardurilor să se așeze pe mai multe coloane */
+    max-width: 380px;
+}
+
+.company-card:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Detalii Companie */
+#details-container {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 2px solid #4CAF50 !important;
+    border-radius: 12px;
+    padding: 20px !important;
+    margin-top: 20px !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    color: #333;
+    width: 100%;
+    max-width: 800px;
+}
+
+#details-container h3, #details-container h4 {
+    color: #4CAF50;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* --- Stilizare Tabel Transporturi (NOU) --- */
+#routes-table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0;
+    font-size: 0.95em;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+#routes-table thead {
+    background: #4CAF50;
+    color: white;
+}
+
+#routes-table th, #routes-table td {
+    padding: 10px;
+    text-align: left;
+    border: none; 
+}
+
+#routes-table th {
+    font-weight: 600;
+    border-right: 1px solid #66bb6a;
+}
+
+#routes-table th:last-child {
+    border-right: none;
+}
+
+#routes-body tr {
+    transition: background-color 0.3s, border-left 0.3s;
+    cursor: pointer;
+}
+
+#routes-body tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+#routes-body tr:hover {
+    background-color: #e0f2f1 !important; 
+    transform: scale(1.01);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#routes-body td {
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+#routes-body td:last-child {
+    border-right: none;
+}
+
+/* Butonul de încărcare mai multe rute */
+#load-routes-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#load-routes-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Stilizare pentru culorile de volum aplicate în JS */
+#routes-body tr[style*="e8f5e9"] { /* Volum Mic (e.g. #e8f5e9) */
+    background-color: #e8f5e9;
+}
+#routes-body tr[style*="fff9c4"] { /* Volum Mediu (e.g. #fff9c4) */
+    background-color: #fff9c4;
+}
+#routes-body tr[style*="ffccbc"] { /* Volum Mare (e.g. #ffccbc) */
+    background-color: #ffccbc;
+}
+
+/* --- Stilizare Secțiune Hartă (NOU) --- */
+.map-section {
+    padding: 0 5%;
+    padding-bottom: 50px;
+    background: rgba(0, 0, 0, 0.35); /* Continuă fundalul semi-transparent */
+}
+
+#map {
+    border-radius: 12px;
+    border: 3px solid #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.3s;
+}
+
+#map:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
